@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>掲示板</title>
+</head>
+<body bgcolor="#FFFFFF">
+
+<center><b>■平成あるある掲示板</b></center>
+<hr>
+
+<div id="posts"></div>
+
+<hr>
+
+名前：<br>
+<input type="text" id="name" size="40"><br>
+コメント：<br>
+<textarea id="message" rows="4" cols="50"></textarea><br>
+<button onclick="postMessage()">書き込む</button>
+
+<script>
+function loadPosts(){
+    var posts = JSON.parse(localStorage.getItem("heisei_bbs") || "[]");
+    var html = "";
+    for(var i=0;i<posts.length;i++){
+        html += "<b>" + (i+1) + " 名前：" + posts[i].name + "</b><br>";
+        html += posts[i].msg + "<hr>";
+    }
+    document.getElementById("posts").innerHTML = html;
+}
+
+function postMessage(){
+    var name = document.getElementById("name").value || "名無しさん";
+    var msg = document.getElementById("message").value;
+    if(!msg) return;
+
+    var posts = JSON.parse(localStorage.getItem("heisei_bbs") || "[]");
+    posts.push({name:name, msg:msg});
+    localStorage.setItem("heisei_bbs", JSON.stringify(posts));
+
+    document.getElementById("message").value = "";
+    loadPosts();
+}
+
+loadPosts();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>トップ</title>
+</head>
+<body bgcolor="#FFFFFF">
+
+<center>
+<pre>
+██╗  ██╗███████╗██╗███████╗███████╗██╗
+██║  ██║██╔════╝██║██╔════╝██╔════╝██║
+███████║█████╗  ██║███████╗█████╗  ██║
+██╔══██║██╔══╝  ██║╚════██║██╔══╝  ██║
+██║  ██║███████╗██║███████║███████╗██║
+╚═╝  ╚═╝╚══════╝╚═╝╚══════╝╚══════╝╚═╝
+
+WELCOME TO HEISEI INTERNET
+</pre>
+
+<pre>
+(・∀・) このサイトはWindows95風です
+画像: 0枚 / 広告: なし / 超軽量
+</pre>
+
+<hr>
+<pre id="speed">回線速度測定中...</pre>
+
+<script>
+var start = new Date().getTime();
+window.onload = function(){
+    var end = new Date().getTime();
+    var time = end - start;
+    document.getElementById("speed").innerText =
+    "あなたの回線速度: 爆速 (" + time + " ms)";
+};
+</script>
+
+</center>
+</body>
+</html>
